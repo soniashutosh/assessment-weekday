@@ -22,7 +22,7 @@ const useCompanyLoader = ({ pageNumber }: useCompanyLoaderProps) => {
       setLoading(true);
       setError(false);
 
-      let cancel: Canceler = () => {};
+      let cancel: Canceler;
       try {
         const response = await axios.post(
           "https://api.weekday.technology/adhoc/getSampleJdJSON",
