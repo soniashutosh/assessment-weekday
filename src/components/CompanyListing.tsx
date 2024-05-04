@@ -8,7 +8,7 @@ const CompanyListing = () => {
 
   const [selectedRole, setSelectedRole] = useState<string | null>(null);
   const [location, setLocation] = useState<string | null>(null);
-  const [basePay, setBasePay] = useState<number | null>(null);
+  const [basePay, setBasePay] = useState<number>(0);
   const [companyName, setCompanyName] = useState<string | null>(null);
 
   const { isLoading, error, companyList, hasMore, roleList, locationList } =
@@ -48,11 +48,7 @@ const CompanyListing = () => {
       ) {
         return false;
       }
-      if (
-        basePay !== null &&
-        basePay != NaN &&
-        company.minJdSalary <= basePay
-      ) {
+      if (basePay != NaN && company.minJdSalary <= basePay) {
         return false;
       }
       return true;
